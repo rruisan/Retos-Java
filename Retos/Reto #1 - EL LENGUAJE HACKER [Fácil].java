@@ -27,18 +27,17 @@ public class Main
 	}
 	
 	public static String convertPhrase(char[] phrase_vectorized, Map<Character, String> spanishLeetDictionary){
-		String phrase_converted = "";
-		
-		for (char c : phrase_vectorized){
-			if (c != ' '){
-				phrase_converted += spanishLeetDictionary.get(c);
+		StringBuilder phrase_converted = new StringBuilder();
+
+	        for (char c : phrase_vectorized) {
+			if (c != ' ') {
+				phrase_converted.append(spanishLeetDictionary.get(c));
+			} else {
+				phrase_converted.append(" ");
 			}
-			else{
-				phrase_converted += " ";
-			}
-		}
-		
-		return phrase_converted;
+	        }
+	
+	        return phrase_converted.toString();
 	}
 	
 	public static Map<Character, String> createSpanishLeetDictionary() {
